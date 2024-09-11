@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Details</title>
+    <style>
+        h1{
+            color:mediumvioletred;
+            justify-content: center;
+            text-align: center;
+            margin-top: 100px;
+        }
+        #tab{
+            text-align: center;
+            align-items: center;
+            margin-left: 230px;
+        }
+        #tab button{
+              background-color: green;
+              color: white;
+              border-style: none;
+              border-radius: 5px;
+              text-align: center;
+              padding: 3px 6px;
+        }
+        #tab button:hover{
+            background-color: yellow;
+            color: black;
+        }
+        input:hover{
+             background-color: bisque;
+             color: black;
+        }
+        table tr td div{
+            font-style:bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bapu VidhyaNikethan School</h1><br><br>
+    <table id="tab" border="1" style="border-collapse: collapse"; cellpadding="10px">
+        <tr>
+            <th>SI No.</th>
+            <th>Student Name</th>
+            <th>Telugu</th>
+            <th>Hindi</th>
+            <th>English</th>
+            <th>Submit</th>
+            <th>Total & Grade</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td id="s1">Sushma</td>
+            <td><input type="number" id="t1"></td>
+            <td><input type="number" id="h1"></td>
+            <td><input type="number" id="e1"></td>
+            <td><button type="button" onclick="myfun(1);">Submit</button></td>
+            <td><div id="s1total"></div></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td id="s2">Rajitha</td>
+            <td><input type="number" id="t2"></td>
+            <td><input type="number" id="h2"></td>
+            <td><input type="number" id="e2"></td>
+            <td><button type="button" onclick="myfun(2);">Submit</button></td>
+            <td><div id="s2total"></div></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td id="s3">Mukhul</td>
+            <td><input type="number" id="t3"></td>
+            <td><input type="number" id="h3"></td>
+            <td><input type="number" id="e3"></td>
+            <td><button type="button" onclick="myfun(3);">Submit</button></td>
+            <td><div id="s3total"></div></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td id="s4">Deepak</td>
+            <td><input type="number" id="t4"></td>
+            <td><input type="number" id="h4"></td>
+            <td><input type="number" id="e4"></td>
+            <td><button type="button" onclick="myfun(4);">Submit</button></td>
+            <td><div id="s4total"></div></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td id="s5">Pramila</td>
+            <td><input type="number" id="t5"></td>
+            <td><input type="number" id="h5"></td>
+            <td><input type="number" id="e5"></td>
+            <td><button type="button" onclick="myfun(5);">Submit</button></td>
+            <td><div id="s5total"></div></td>
+        </tr>
+    </table>
+    <script>
+          function myfun(studentNumber) {
+          let t = document.getElementById('t' + studentNumber).value;
+            let h = document.getElementById('h' + studentNumber).value;
+            let e = document.getElementById('e' + studentNumber).value;
+
+            let intT = parseInt(t);
+            let intH = parseInt(h);
+            let intE = parseInt(e);
+
+            let total = intT + intH + intE;
+
+            let grade;
+            let subfail;
+            if((intT>=35 && intT<=100) && (intH>=35 && intH<=100) && (intE>=35 && intE<=100) ) {
+              subfail="0";
+            }
+            else if(intT<35 && intH<35 && intE<35){
+               subfail="TEL , HIN , ENG";
+            }
+            else if(intT<35 && intH<35 && intE>35){
+               subfail="TEL , HIN";
+            }
+            else if(intT<35 && intH>35 && intE<35){
+               subfail="TEL , ENG ";
+            }
+            else if(intT>35 && intH<35 && intE<35){
+               subfail="HIN , ENG";
+            }
+            else if(intT<35 && intH>35 && intE>35){
+               subfail="TEL";
+            }
+            else if(intT>35 && intH<35 && intE>35){
+               subfail="HIN";
+            }
+            else if(intT>35 && intH>35 && intE<35){
+               subfail="ENG";
+            }
+            if (total >= 270 && total <=300) {
+                grade = 'A';
+            } else if (total >=240 && total <270) {
+                grade = 'B';
+            } else if (total >= 200 && total <240) {
+                grade = 'C';
+            } else if(total<200 && total >=150) {
+                grade = 'D';
+            }
+            else if(total<150 && total >=100) {
+                grade = 'E';
+            }
+            else{
+              grade= 'F';
+            }
+
+
+            document.getElementById("s" + studentNumber + "total").innerHTML =`Total= ${total}, Grade: ${grade}, Failed-Subjects:${subfail}`;
+        }
+        
+          
+    </script>
+</body>
+</html>

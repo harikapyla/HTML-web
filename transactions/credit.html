@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Amount</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        #cr{
+            background-color: cadetblue;
+            padding:20px 100px;
+            margin:80px 450px;
+            padding-bottom: 50px;
+            border-style: none;
+            border-radius:7px;
+        }
+        #form{
+            justify-content: center;
+            text-align: center;
+          
+        }
+        h1{
+            justify-content: center;
+            text-align: center;
+            color: rgb(239, 187, 56);
+        }
+        button{
+            background-color: blue;
+            color: white;
+            justify-content: center;
+            text-align: center;
+            padding:5px 15px;
+            font-size: 1rem;
+            border-radius: 7px;
+            border-color: black;
+            
+        }
+        #but{
+            margin-left:360px;
+        }
+       button:hover{
+        background-color:lightgreen;
+        color: black;
+      }
+    label{
+        color: blue;
+        font-size:1.2rem;
+      }
+      input{
+        border-style: none;
+        border-radius: 5px;
+      }
+      i{
+        font-size:50px;
+      }
+    </style>
+</head>
+<body>
+    <i class="fa-solid fa-circle-arrow-left" onclick="window.location.href='index.html'"></i>
+    <div id="cr">
+        <h1>Credit Form</h1><br><br>
+    <div id="form">
+        <label>Username:</label>
+        <input type="text" id="username">
+        <button id="val" onclick="validateUsername()">Validate</button><br>
+        <p id="errorMessage" style="color:red; display:none;">Invalid Username</p><br>
+        <label>Enter Creditit Balance:</label>
+        <input type="number"><br><br><br>
+        <button id="but" style="display: none;" type="submit" onclick="redirectTosuccess();">Submit</button>
+    </div>
+    </div>
+    <script>
+         function validateUsername() {
+            const validUsernames = ['Harikapyla']; // Valid usernames
+            const username = document.getElementById("username").value;
+            const but = document.getElementById("but");
+            const errorMessage = document.getElementById("errorMessage");
+
+            if (validUsernames.includes(username)) {
+                alert("Username is valid!");
+                but.style.display = "block"; //Show submit button
+            } else {
+                errorMessage.style.display = "block";// Show error message
+            }
+        }
+        function redirectTosuccess(){
+            let pin=prompt("Enter Your PIN");
+            if(pin==='6789'){
+              window.location.href='success.html';
+            }
+            else{
+                alert("Invalid pin");
+            }
+          }
+    </script>
+</body>
+</html>

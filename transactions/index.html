@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Details</title>
+    <style>
+        body{
+            height: 100vh;
+        }
+        i{
+       font-size:50px ;
+       margin-top: 20px;
+       margin-left: 40px;
+    }
+    h1{
+        color: crimson;
+        font-size: 3.5rem;
+        justify-content: center;
+        text-align: center;
+        margin-top: 170px;
+    }
+    button{
+        background-color: blue;
+        color: white;
+        justify-content: center;
+        text-align: center;
+        margin-top:60px;
+        margin-left: 80px;
+        padding: 50px;
+        font-size: 1.3rem;
+        border-radius: 7px;
+        border-color: black;
+    }
+    button:hover{
+        background-color:lightgreen;
+        color: black;
+    }
+   div{
+    justify-content: center;
+    margin-left: 80px;
+    margin-top: 50px;
+   }
+   #pass{
+    font-size: 1.5rem;
+    margin-top: 150px;
+   color:green;
+   }
+    </style>
+</head>
+<body>
+    <h1>Bank Details</h1>
+    <div>
+        <button onclick="redirectToaccount();">Account Details</button>
+        <button onclick="redirectTocredit();">Credit balance</button>
+        <button onclick="redirectTodebit();">Debit balance</button>
+    </div>
+    <div id="pass">
+        <span>Password:</span>
+        <span>6789</span><br>
+        <span>Username:</span>
+        <span>Harikapyla</span>
+    </div>
+    <script>
+          function redirectToaccount(){
+            let pin=prompt("Enter Your PIN");
+            if(pin==='6789'){
+              window.location.href='account.html';
+            }
+            else{
+                alert("Invalid pin");
+            }
+          }
+          function redirectTocredit(){
+            let pin=prompt("Enter Your PIN");
+            if(pin==='6789'){
+              window.location.href='credit.html';
+            }
+            else{
+                alert("Invalid pin");
+            }
+          }
+          function redirectTodebit(){
+            let pin=prompt("Enter Your PIN");
+            if(pin==='6789'){
+              window.location.href='debit.html';
+            }
+            else{
+                alert("Invalid pin");
+            }
+          }
+        
+    </script>
+</body>
+</html>
